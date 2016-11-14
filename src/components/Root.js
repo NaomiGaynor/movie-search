@@ -4,6 +4,7 @@
 
 import jQuery from 'jquery';
 import Search from './Search';
+import SearchResult from './SearchResult';
 
 export default class Root {
   constructor({ $parent }) {
@@ -24,16 +25,38 @@ export default class Root {
     this.renderSearch();
   }
 
-  /**
-   * renderSearch
-   * Inatantiates search component then calls render on component class
-   */
   renderSearch() {
     const searchContainer = this.searchContainer;
     const searchComponent = new Search({
-      $parent: searchContainer
+      $parent: searchContainer,
+      onSearchResults: this.onSearchResults.bind(this)
     });
 
     searchComponent.render();
+  }
+
+  renderList(results) {
+    const searchResults = this.searchResults;
+    const searchElements = results.map((m) => {
+      const searchElement = jQuery('<div />');
+      const resultComponent = new SearchResult({
+        $parent: searchElement,
+        model: m
+      });
+
+      resultComponent.render();
+      return searchElement;
+    });
+
+    searchResults.append(...searchElements);
+  }
+
+  destroyList() {
+    this.searchResults.html('');
+  }
+
+  onSearchResults(results) {
+    this.destroyList();
+    this.renderList(results);
   }
 }

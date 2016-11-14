@@ -1,12 +1,43 @@
 <?xml version="1.0"?>
-<testsuite name="PhantomJS 2.1.1 (Mac OS X 0.0.0)" package="" timestamp="2016-11-12T16:04:13" id="0" hostname="ukm052965" tests="2" errors="0" failures="0" time="0.004">
+<testsuite name="PhantomJS 2.1.1 (Mac OS X 0.0.0)" package="" timestamp="2016-11-14T01:44:08" id="0" hostname="ukm052965" tests="23" errors="0" failures="0" time="0.048">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1"/>
   </properties>
-  <testcase name="Init Module #init should render ROOT" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Init Module"/>
-  <testcase name="Init Module #init should append ROOT to body" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Init Module"/>
+  <testcase name="SearchCollection Module #SearchCollection should be instance of array" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).SearchCollection Module"/>
+  <testcase name="SearchResult Module #SearchResult .render should append search result" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).SearchResult Module"/>
+  <testcase name="SearchResult Module #SearchResult .render should contain an image with image_path from model" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).SearchResult Module"/>
+  <testcase name="SearchResult Module #SearchResult .render should render title from model" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).SearchResult Module"/>
+  <testcase name="SearchResult Module #SearchResult .render should render description from model" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).SearchResult Module"/>
+  <testcase name="SearchResult Module #SearchResult .render should call destroy" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).SearchResult Module"/>
+  <testcase name="SearchResult Module #SearchResult .destroy should reset html" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).SearchResult Module"/>
+  <testcase name="Root Module #Root .render should append Search container to wrapper" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Root Module"/>
+  <testcase name="Root Module #Root .render should render search component" time="0" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Root Module"/>
+  <testcase name="Root Module #Root .renderSearch should initialize search component" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Root Module"/>
+  <testcase name="Root Module #Root .onSearchResults should destroy previous search list" time="0" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Root Module"/>
+  <testcase name="Root Module #Root .onSearchResults should render new list" time="0.003" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Root Module"/>
+  <testcase name="Search Module #Search .render should call destroy" time="0.004" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Search Module"/>
+  <testcase name="Search Module #Search .render should append onto input search" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Search Module"/>
+  <testcase name="Search Module #Search .render should bind events" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Search Module"/>
+  <testcase name="Search Module #Search .destroy should unbind events" time="0" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Search Module"/>
+  <testcase name="Search Module #Search .destroy should reset html" time="0.002" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Search Module"/>
+  <testcase name="Search Module #Search .buildSearchRequest should create url request from searchinput val" time="0" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Search Module"/>
+  <testcase name="getSearchCollection Module #getSearchCollection should make ajax request" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).getSearchCollection Module"/>
+  <testcase name="getSearchCollection Module #getSearchCollection should instantiate new SearchCollection" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).getSearchCollection Module"/>
+  <testcase name="Init Module #init should render ROOT" time="0.001" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Init Module"/>
+  <testcase name="Init Module #init should append ROOT to body" time="0.02" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).Init Module"/>
+  <testcase name="SearchModel Module #SearchModel should create mdoel with image path" time="0" classname="PhantomJS_2_1_1_(Mac_OS_X_0_0_0).SearchModel Module"/>
   <system-out>
-    <![CDATA[
+    <![CDATA[PhantomJS 2.1.1 (Mac OS X 0.0.0) ERROR: 'Unhandled promise rejection', TypeError{stack: 'SeachCollection@http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11987:22
+http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11282:43
+run@http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11470:30
+http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11483:32
+flush@http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11859:12', line: 11987, sourceURL: 'http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e'}
+,PhantomJS 2.1.1 (Mac OS X 0.0.0) ERROR: 'Unhandled promise rejection', TypeError{stack: 'SeachCollection@http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11987:22
+http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11282:43
+run@http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11470:30
+http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11483:32
+flush@http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e:11859:12', line: 11987, sourceURL: 'http://localhost:9876/base/spec/dataHandlers/getSearchCollection-spec.js?8a227a6b3e9491ed3c154b5f948d9e5775d91e5e'}
+
 ]]>
   </system-out>
   <system-err/>

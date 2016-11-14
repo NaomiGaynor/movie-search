@@ -7,7 +7,8 @@ describe('Search Module', () => {
   beforeEach(() => {
     jQuery('body').html('');
     instance = new Search({
-      $parent: jQuery('body')
+      $parent: jQuery('body'),
+      onSearchResults: jasmine.any(Function)
     });
   });
 
@@ -29,9 +30,27 @@ describe('Search Module', () => {
 
         expect(jQuery('body').children()[0].className).toBe('search-form__container');
       });
+
+      it('should bind events', () => {
+        spyOn(instance, 'bindEvents');
+
+        instance.render();
+
+        expect(instance.bindEvents).toHaveBeenCalled();
+      });
     });
 
     describe('.destroy', () => {
+      beforeEach(() => {
+        spyOn(instance, 'unbindEvents');
+      });
+
+      it('should unbind events', () => {
+        instance.destroy();
+
+        expect(instance.unbindEvents).toHaveBeenCalled();
+      });
+
       it('should reset html', () => {
         instance.render();
 
@@ -40,6 +59,14 @@ describe('Search Module', () => {
         instance.destroy();
 
         expect(jQuery('body').children().length).toBe(0);
+      });
+    });
+
+    describe('.buildSearchRequest', () => {
+      it('should create url request from searchinput val', () => {
+        spyOn(jQuery.fn, 'val').and.returnValue('someInput');
+
+        expect(instance.buildSearchRequest()).toBe('https://api.themoviedb.org/3/search/movie?api_key=f48a3bd49fd7e66b556a04ec43f6980b&query=someInput');
       });
     });
   });

@@ -3,6 +3,11 @@ import Root from '../../src/components/Root';
 import Search from '../../src/components/Search';
 
 describe('Root Module', () => {
+  const SearchResults = [{
+    image_path: 'some/path',
+    original_title: 'some title',
+    overview: 'some overview'
+  }];
   let instance;
 
   beforeEach(() => {
@@ -34,11 +39,31 @@ describe('Root Module', () => {
     describe('.renderSearch', () => {
       it('should initialize search component', () => {
         instance.searchContainer = '<div />';
+        spyOn(Search.prototype, 'constructor');
         spyOn(Search.prototype, 'render');
 
         instance.renderSearch();
 
         expect(Search.prototype.render).toHaveBeenCalled();
+      });
+    });
+
+    describe('.onSearchResults', () => {
+      beforeEach(() => {
+        spyOn(instance, 'renderList');
+        spyOn(instance, 'destroyList');
+      });
+
+      it('should destroy previous search list', () => {
+        instance.onSearchResults(SearchResults);
+
+        expect(instance.destroyList).toHaveBeenCalled();
+      });
+
+      it('should render new list', () => {
+        instance.onSearchResults(SearchResults);
+
+        expect(instance.renderList).toHaveBeenCalledWith(SearchResults);
       });
     });
   });

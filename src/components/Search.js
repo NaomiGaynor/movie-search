@@ -3,8 +3,9 @@ import { MOVIE_DB_URL, API_KEY } from '../constants';
 import getSearchCollection from '../dataHandlers/getSearchCollection';
 
 export default class Search {
-  constructor({ $parent }) {
+  constructor({ $parent, onSearchResults }) {
     this.$parent = $parent;
+    this.onSearchResults = onSearchResults;
   }
 
   bindEvents() {
@@ -41,7 +42,7 @@ export default class Search {
     evt.preventDefault();
     const url = this.buildSearchRequest();
 
-    getSearchCollection(url);
+    getSearchCollection(url).then(this.onSearchResults);
   }
 
   buildSearchRequest() {

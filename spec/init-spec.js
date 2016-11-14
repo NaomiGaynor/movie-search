@@ -1,6 +1,6 @@
+import jQuery from 'jquery';
 import init from '../src/init';
 import Root from '../src/components/Root';
-import jQuery from 'jquery';
 
 describe('Init Module', () => {
   beforeEach(() => {
@@ -10,7 +10,9 @@ describe('Init Module', () => {
   describe('#init', () => {
     it('should render ROOT', () => {
       spyOn(Root.prototype, 'render');
+
       init();
+
       expect(Root.prototype.render).toHaveBeenCalled();
     });
 
