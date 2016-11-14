@@ -3,6 +3,7 @@
  */
 
 import jQuery from 'jquery';
+import Search from './Search';
 
 export default class Root {
   constructor({ $parent }) {
@@ -11,6 +12,24 @@ export default class Root {
 
   render() {
     this.$parent.html('');
-    this.$parent.append(jQuery('<div class="wrapper"></div>'));
+
+    const wrapper = jQuery('<div class="wrapper" />');
+    this.searchContainer = jQuery('<div class="search-container" />');
+    this.searchResults = jQuery('<div class="search-results" />');
+
+    wrapper.append(this.searchContainer);
+    wrapper.append(this.searchResults);
+
+    this.$parent.append(wrapper);
+    this.renderSearch();
+  }
+
+  renderSearch() {
+    const searchContainer = this.searchContainer;
+    const searchComponent = new Search({
+      $parent: searchContainer
+    });
+
+    searchComponent.render();
   }
 }
