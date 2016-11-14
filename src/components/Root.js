@@ -24,6 +24,10 @@ export default class Root {
     this.renderSearch();
   }
 
+  /**
+   * renderSearch
+   * Inatantiates search component then calls render on component class
+   */
   renderSearch() {
     const searchContainer = this.searchContainer;
     const searchComponent = new Search({
