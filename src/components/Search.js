@@ -45,7 +45,11 @@ export default class Search {
     getSearchCollection(url).then(this.onSearchResults);
   }
 
-  buildSearchRequest() {
+  /**
+   * buildSearchRequest
+   * @return {String} url request for search
+   */
+  buildSearchRequest() { // eslint-disable-line
     const searchInput = jQuery('.search').val();
     const query = `&query=${searchInput}`;
     const urlRequest = [MOVIE_DB_URL, API_KEY, query].join('');

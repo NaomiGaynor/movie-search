@@ -25,6 +25,10 @@ export default class Root {
     this.renderSearch();
   }
 
+  /**
+   * renderSearch
+   * instantiate search component and render
+   */
   renderSearch() {
     const searchContainer = this.searchContainer;
     const searchComponent = new Search({
@@ -35,6 +39,11 @@ export default class Root {
     searchComponent.render();
   }
 
+  /**
+   * renderList
+   * @param  {Object} search results
+   * Instantiate Search Result component and render on Dom
+   */
   renderList(results) {
     const searchResults = this.searchResults;
     const searchElements = results.map((m) => {
